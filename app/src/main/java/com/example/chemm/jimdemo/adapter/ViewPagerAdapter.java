@@ -4,6 +4,7 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.view.Choreographer;
+import android.view.View;
 import android.view.ViewGroup;
 
 import java.lang.reflect.Array;
@@ -35,6 +36,10 @@ public class ViewPagerAdapter extends FragmentPagerAdapter {
         return fragmentArrayList.size();
     }
 
+    public void setFragments(ArrayList<Fragment> fragmentArrayList){
+        this.fragmentArrayList = fragmentArrayList;
+    }
+
     @Override
     public CharSequence getPageTitle(int position){
         return fragmentArrayList.get(position).getClass().getName();
@@ -48,5 +53,10 @@ public class ViewPagerAdapter extends FragmentPagerAdapter {
     @Override
     public void destroyItem(ViewGroup container, int position, Object object){
         super.destroyItem(container, position, object);
+    }
+
+    @Override
+    public boolean isViewFromObject(View view, Object object){
+        return super.isViewFromObject(view, object);
     }
 }

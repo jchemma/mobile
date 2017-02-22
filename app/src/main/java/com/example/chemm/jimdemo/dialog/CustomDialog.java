@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.support.annotation.NonNull;
 import com.example.chemm.jimdemo.R;
 
+import butterknife.ButterKnife;
 import butterknife.OnClick;
 
 /**
@@ -16,8 +17,8 @@ public class CustomDialog extends Dialog {
 
     @OnClick(R.id.dialog_ok)
     public void okClick(){
-        dismiss();
         listener.onClickListener();
+        dismiss();
     }
 
     private ICustomDialogEventListener listener;
@@ -35,5 +36,6 @@ public class CustomDialog extends Dialog {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.custom_dialog);
+        ButterKnife.bind(this);
     }
 }

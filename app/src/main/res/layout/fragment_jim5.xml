@@ -2,19 +2,12 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.chemm.jimdemo.fragment.HistoryFragment">
-
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
-        android:id="@+id/history_fragment_text_view"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="History Fragment"/>
+    tools:context="com.example.chemm.jimdemo.fragment.Jim5Fragment">
 
     <ImageView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:scaleType="center"
+        android:scaleType="matrix"
         android:src="@mipmap/pic1"/>
 
 </FrameLayout>

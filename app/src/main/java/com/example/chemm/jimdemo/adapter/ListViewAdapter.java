@@ -47,10 +47,9 @@ public class ListViewAdapter extends BaseAdapter{
 
     @Override
     public View getView(int position, View convertView, ViewGroup parent){
-        ViewHolder holder;
+        ViewHolder holder = new ViewHolder();
         if(convertView == null){
             convertView = inflater.inflate(R.layout.list_item, parent, false);
-            holder = new ViewHolder();
             holder.textView1 = (TextView)convertView.findViewById(R.id.list_view_tv1);
             holder.textView2 = (TextView)convertView.findViewById(R.id.list_view_tv2);
             holder.textView3 = (TextView)convertView.findViewById(R.id.list_view_tv3);
@@ -60,16 +59,24 @@ public class ListViewAdapter extends BaseAdapter{
         }
 
         holder.textView1.setText(String.valueOf(position));
-        holder.textView2.setText(String.valueOf(position));
-        holder.textView3.setText(listResult.get(position));
+        holder.textView2.setText(listResult.get(position));
+        holder.textView3.setText(String.valueOf(position));
 
         if(position % 2 == 0){
             holder.textView1.setVisibility(View.VISIBLE);
             holder.textView3.setVisibility(View.INVISIBLE);
+            holder.textView2.setBackgroundResource(R.drawable.chat_from_bg);
+            holder.textView2.setLayoutParams(holder.lp);
             holder.lp.setMargins(UtilDensity.dip2px(context,50),0,0,0);
             holder.lp.addRule(RelativeLayout.ALIGN_PARENT_LEFT);
-            holder.textView2.setBackgroundResource(R.drawable.chatfrom_bg_focused);
+
+        }else{
+            holder.textView1.setVisibility(View.INVISIBLE);
+            holder.textView2.setBackgroundResource(R.drawable.chatto_bg_focused);
             holder.textView2.setLayoutParams(holder.lp);
+            holder.textView3.setVisibility(View.VISIBLE);
+            holder.lp.setMargins(0,0,UtilDensity.dip2px(context,50),0);
+            holder.lp.addRule(RelativeLayout.ALIGN_PARENT_RIGHT);
         }
 
         return convertView;

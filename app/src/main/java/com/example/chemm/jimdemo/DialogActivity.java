@@ -3,6 +3,7 @@ package com.example.chemm.jimdemo;
 import android.app.AlertDialog;
 import android.app.ProgressDialog;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.IdRes;
 import android.widget.EditText;
@@ -62,6 +63,10 @@ public class DialogActivity extends BaseActivity{
             @Override
             public void onClickListener(){
                 toastShort("Ok Button was clicked");
+                Intent intent = new Intent();
+                intent.putExtra("message", "ViewPager");
+                setResult(RESULT_OK, intent);
+                finish();
             }
         });
         dialog.show();

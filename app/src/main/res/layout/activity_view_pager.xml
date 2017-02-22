@@ -7,6 +7,13 @@
     android:id="@+id/activity_view_pager"
     tools:context="com.example.chemm.jimdemo.ViewPagerActivity">
 
+    <TextView
+        android:id="@+id/text_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:text="LOLOLOL"/>
+
     <android.support.v4.view.ViewPager
         android:id="@+id/view_pager"
         android:layout_width="match_parent"

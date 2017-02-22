@@ -1,7 +1,6 @@
 package com.example.chemm.jimdemo;
 
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageButton;
@@ -10,17 +9,27 @@ import android.widget.Toast;
 import com.example.chemm.jimdemo.bean.Book;
 import com.example.chemm.jimdemo.util.UtilLog;
 
+import butterknife.ButterKnife;
 import butterknife.OnClick;
 
 public class MainActivity extends BaseActivity {
 
     private ImageButton button1;
     private ImageButton button3;
+    private ImageButton topLeftButton;
 
     @OnClick(R.id.button2)
     public void button2click(){
         Intent intent = new Intent(this,DialogActivity.class);
         startActivityForResult(intent,2);
+
+        //what to do when you dont have butterknife
+//        button2.setOnClickListener(new View.OnClickListener(){
+//            @Override
+//            public void onClick(View view){
+//                Toast.makeText(view.getContext(), "Button 2", Toast.LENGTH_SHORT).show();
+//            }
+//        });
     }
 
     @Override
@@ -29,37 +38,51 @@ public class MainActivity extends BaseActivity {
         setContentView(R.layout.activity_main);
         initialView();
         initialListener();
+        ButterKnife.bind(this);
 
-        //TODO: Butterknife
     }
 
     private void initialView(){
         button1 = (ImageButton) findViewById(R.id.button1);
         button3 = (ImageButton) findViewById(R.id.button3);
+        topLeftButton = (ImageButton) findViewById(R.id.topLeftButton);
     }
 
     private void initialListener(){
         button1.setOnClickListener(new View.OnClickListener(){
-           @Override
+            @Override
             public void onClick(View view){
-               Toast.makeText(view.getContext(),"Button 1 was clicked.",Toast.LENGTH_LONG).show();
-               Intent intent = new Intent(view.getContext(), ViewPagerActivity.class);
-               intent.putExtra("key","value");
-               Bundle bundle = new Bundle();
-               bundle.putInt("Integer", 12345);
-               Book book = new Book();
-               book.setName("Android");
-               book.setAuthor("Jim Chemmalakuzhy");
-               bundle.putSerializable("book",book);
-               intent.putExtras(bundle);
-               startActivity(intent);
-           }
+                Toast.makeText(view.getContext(),"Button 1 was clicked", Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(view.getContext(),ViewPagerActivity.class);
+                intent.putExtra("key", "value");
+                Bundle bundle = new Bundle();
+                bundle.putInt("Integer", 12345);
+
+                Book book = new Book();
+                book.setName("Book's Name");
+                book.setAuthor("Book's Author");
+                bundle.putSerializable("book",book);
+
+                intent.putExtras(bundle);
+                startActivityForResult(intent,1);
+            }
         });
 
         button3.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view){
-                toActivity(ListViewActivity.class);
+                toastShort("Button 3 was clicked");
+                Intent intent = new Intent(view.getContext(),ListViewActivity.class);
+                startActivityForResult(intent, 3);
+            }
+        });
+
+        topLeftButton.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View view){
+                Toast.makeText(view.getContext(), "View Page", Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(view.getContext(), ViewPagerActivity.class);
+                startActivity(intent);
             }
         });
     }
@@ -73,8 +96,10 @@ public class MainActivity extends BaseActivity {
                 toastShort(message);
                 break;
             case 2:
+                toastShort("Dialog");
                 break;
             case 3:
+                toastShort("ListView");
                 break;
             default:
         }
