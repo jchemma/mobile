@@ -20,6 +20,15 @@
         <activity android:name=".ViewPagerActivity" />
         <activity android:name=".DialogActivity" />
         <activity android:name=".BaseActivity"/>
+        <activity android:name=".LetterActivityA"
+            android:launchMode="standard"/>
+        <activity android:name=".LetterActivityB"
+            android:launchMode="singleTop"/>
+        <activity android:name=".LetterActivityC"
+            android:launchMode="singleTask"/>
+        <activity android:name=".LetterActivityD"
+            android:launchMode="singleInstance"/>
+
     </application>
 
 </manifest>

@@ -17,13 +17,14 @@ public class MainActivity extends BaseActivity {
     private ImageButton button1;
     private ImageButton button3;
     private ImageButton topLeftButton;
+    private ImageButton topRightButton;
 
     @OnClick(R.id.button2)
     public void button2click(){
         Intent intent = new Intent(this,DialogActivity.class);
         startActivityForResult(intent,2);
 
-        //what to do when you dont have butterknife
+//        what to do when you dont have butterknife
 //        button2.setOnClickListener(new View.OnClickListener(){
 //            @Override
 //            public void onClick(View view){
@@ -46,6 +47,7 @@ public class MainActivity extends BaseActivity {
         button1 = (ImageButton) findViewById(R.id.button1);
         button3 = (ImageButton) findViewById(R.id.button3);
         topLeftButton = (ImageButton) findViewById(R.id.topLeftButton);
+        topRightButton = (ImageButton) findViewById(R.id.topRightButton);
     }
 
     private void initialListener(){
@@ -82,6 +84,15 @@ public class MainActivity extends BaseActivity {
             public void onClick(View view){
                 Toast.makeText(view.getContext(), "View Page", Toast.LENGTH_SHORT).show();
                 Intent intent = new Intent(view.getContext(), ViewPagerActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        topRightButton.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View view){
+                Toast.makeText(view.getContext(), "Letter Page", Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(view.getContext(), LetterActivityA.class);
                 startActivity(intent);
             }
         });
