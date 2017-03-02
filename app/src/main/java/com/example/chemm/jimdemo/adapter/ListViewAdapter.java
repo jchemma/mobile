@@ -11,7 +11,6 @@ import android.widget.TextView;
 import com.example.chemm.jimdemo.R;
 import com.example.chemm.jimdemo.util.UtilDensity;
 
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 
 /**
@@ -65,7 +64,7 @@ public class ListViewAdapter extends BaseAdapter{
         if(position % 2 == 0){
             holder.textView1.setVisibility(View.VISIBLE);
             holder.textView3.setVisibility(View.INVISIBLE);
-            holder.textView2.setBackgroundResource(R.drawable.chat_from_bg);
+            holder.textView2.setBackgroundResource(R.drawable.chatfrom_bg_focused);
             holder.textView2.setLayoutParams(holder.lp);
             holder.lp.setMargins(UtilDensity.dip2px(context,50),0,0,0);
             holder.lp.addRule(RelativeLayout.ALIGN_PARENT_LEFT);

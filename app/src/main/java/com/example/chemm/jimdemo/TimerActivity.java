@@ -8,7 +8,6 @@ import android.widget.EditText;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
-import butterknife.OnClick;
 
 /**
  * Created by jchemma on 2/27/17.
@@ -32,6 +31,7 @@ public class TimerActivity extends BaseActivity {
             time--;
             if(time > 0){
                 editText.setText(String.valueOf(time));
+                timerButton.setText("Start");
                 handler.postDelayed(this,1000);
             }
         }
