@@ -19,6 +19,16 @@ public class MainActivity extends BaseActivity {
     private ImageButton topLeftButton;
     private ImageButton topRightButton;
 
+    @OnClick(R.id.timer_button)
+    public void onClickTimer(){
+        toActivity(TimerActivity.class);
+    }
+
+    @OnClick(R.id.animation_button)
+    public void onClickAnimation(){
+        toActivity(AnimationActivity.class);
+    }
+
     @OnClick(R.id.button2)
     public void button2click(){
         Intent intent = new Intent(this,DialogActivity.class);

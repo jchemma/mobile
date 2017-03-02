@@ -18,8 +18,12 @@ public class BaseActivity extends AppCompatActivity{
 
     //
     public void toActivity(Class name){
-        Intent intent = new Intent(this, DialogActivity.class);
+        Intent intent = new Intent(this,name);
         startActivity(intent);
+    }
+
+    public void handleMessage(){
+
     }
 
     //Creates a long toast notification with the argument as the message.
