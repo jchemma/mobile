@@ -31,7 +31,6 @@ public class TimerActivity extends BaseActivity {
             time--;
             if(time > 0){
                 editText.setText(String.valueOf(time));
-                timerButton.setText("Start");
                 handler.postDelayed(this,1000);
             }
         }
@@ -65,6 +64,8 @@ public class TimerActivity extends BaseActivity {
             timerButton.setText("Start");
             timerButton.setOnClickListener(start);
             handler.removeCallbacks(runnable);
+            editText.setEnabled(true);
+            editText.setText("20");
         }
     };
 

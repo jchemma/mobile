@@ -1,23 +1,33 @@
 package com.example.chemm.jimdemo;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
+import android.view.GestureDetector;
 import android.view.View;
+import android.widget.FrameLayout;
 import android.widget.ImageButton;
 import android.widget.Toast;
 
 import com.example.chemm.jimdemo.bean.Book;
-import com.example.chemm.jimdemo.util.UtilLog;
+import com.example.chemm.jimdemo.dialog.CustomDialog;
+import com.example.chemm.jimdemo.dialog.QuizDialog;
 
+import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 
-public class MainActivity extends BaseActivity {
+public class MainActivity extends BaseActivity{
 
     private ImageButton button1;
     private ImageButton button3;
     private ImageButton topLeftButton;
     private ImageButton topRightButton;
+    private GestureDetector gestureDetector;
+
+    @BindView(R.id.frame_layout)
+    FrameLayout frameLayout;
 
     @OnClick(R.id.timer_button)
     public void onClickTimer(){
@@ -27,6 +37,33 @@ public class MainActivity extends BaseActivity {
     @OnClick(R.id.animation_button)
     public void onClickAnimation(){
         toActivity(AnimationActivity.class);
+    }
+
+    @OnClick(R.id.animator_button)
+    public void onClickAnimator(){
+        toActivity(AnimatorActivity.class);
+    }
+
+    @OnClick(R.id.quiz_button)
+    public void clickQuizButton(){
+        final QuizDialog dialog = new QuizDialog(this, new QuizDialog.ICustomDialogEventListener() {
+            @Override
+            public void onButton1ClickListener() {
+                toActivity(ViewPagerActivity.class);
+            }
+
+            @Override
+            public void onButton2ClickListener() {
+                toActivity(DialogActivity.class);
+            }
+
+
+            @Override
+            public void onButton3ClickListener() {
+                toActivity(ListViewActivity.class);
+            }
+        });
+        dialog.show();
     }
 
     @OnClick(R.id.button2)
@@ -50,7 +87,8 @@ public class MainActivity extends BaseActivity {
         initialView();
         initialListener();
         ButterKnife.bind(this);
-
+        //gestureDetector = new GestureDetector(this, new SimpleGestureListener());
+        //frameLayout.setOnTouchListener(this);
     }
 
     private void initialView(){
@@ -126,8 +164,59 @@ public class MainActivity extends BaseActivity {
         }
     }
 
-    public void onClick(View view){
-        toastLong("Button 2 was clicked");
-        UtilLog.logD("TestD","Toast");
-    }
+
+
+//    public void onClick(View view){
+//        toastLong("Button 2 was clicked");
+//        UtilLog.logD("TestD","Toast");
+//    }
+
+//    @Override
+//    public boolean onTouch(View v, MotionEvent event) {
+//        return gestureDetector.onTouchEvent(event);
+//    }
+
+//    private class SimpleGestureListener extends GestureDetector.SimpleOnGestureListener {
+//        public boolean onDown(MotionEvent e){
+//            UtilLog.logD("MyGesture", "onDown");
+//            toastShort("onDown");
+//            return true;
+//        }
+//
+//        public void onShowPress(MotionEvent e){
+//            UtilLog.logD("MyGesture", "onShowPress");
+//            toastShort("onShowPress");
+//        }
+//
+//        public void onLongPress(MotionEvent e){
+//            UtilLog.logD("MyGesture", "onLongPress");
+//            toastShort("onLongPress");
+//        }
+//
+//        public boolean onSingleTapConfirmed(MotionEvent even){
+//            toastShort("onSingleTapConfirmed");
+//            return true;
+//        }
+//
+//        public boolean onScroll(MotionEvent even1, MotionEvent event2, float distanceX, float distanceY){
+//            UtilLog.logD("MyGesture", "onScroll: " + (event2.getX()-event2.getX())+ "  "+distanceX);
+//            toastShort("Scrolling...");
+//            return true;
+//        }
+//
+//        public boolean onFling(MotionEvent e1, MotionEvent e2, float velocityX, float velocityY){
+//            toastShort("onFling");
+//            return true;
+//        }
+//
+//        public boolean onDoubleTap(MotionEvent event){
+//            toastShort("onDoubleTap");
+//            return true;
+//        }
+//
+//        public boolean onDoubleTapEvent(MotionEvent event){
+//            toastShort("onDoubleTapEvent");
+//            return true;
+//        }
+//    }
 }

@@ -77,6 +77,7 @@
     </LinearLayout>
 
     <FrameLayout
+        android:id="@+id/frame_layout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_marginTop="58dp">
@@ -97,6 +98,23 @@
             android:layout_marginLeft="100dp"
             android:textAllCaps="false"
             android:textSize="20sp"/>
-    </FrameLayout>
 
+        <Button
+            android:id="@+id/animator_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Animator"
+            android:layout_marginLeft="225dp"
+            android:textAllCaps="false"
+            android:textSize="20sp"/>
+
+        <Button
+            android:id="@+id/quiz_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Quiz"
+            android:textSize="20sp"
+            android:layout_marginTop="50dp"
+            android:textAllCaps="false"/>
+    </FrameLayout>
 </RelativeLayout>

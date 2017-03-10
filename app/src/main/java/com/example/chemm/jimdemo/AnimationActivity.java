@@ -7,6 +7,7 @@ import android.view.animation.AnimationUtils;
 import android.widget.TextView;
 
 import butterknife.BindView;
+import butterknife.ButterKnife;
 import butterknife.OnClick;
 
 /**
@@ -21,7 +22,7 @@ public class AnimationActivity extends BaseActivity {
     private Animation scaleAnimation;
     private Animation rotateAnimation;
 
-    @BindView(R.id.animation_tv)
+    @BindView(R.id.animation_text)
     TextView tv;
 
     @OnClick(R.id.animation_alpha)
@@ -41,18 +42,19 @@ public class AnimationActivity extends BaseActivity {
 
     @OnClick(R.id.animation_set)
     public void set(){
-        tv.startAnimation(alphaAnimation);
+        tv.startAnimation(setAnimation);
     }
 
     @OnClick(R.id.animation_transpose)
     public void transpose(){
-        tv.startAnimation(alphaAnimation);
+        tv.startAnimation(transposeAnimation);
     }
 
     @Override
     protected void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_animation);
+        ButterKnife.bind(this);
         initialAnimation();
         tv.setOnClickListener(new View.OnClickListener(){
             @Override

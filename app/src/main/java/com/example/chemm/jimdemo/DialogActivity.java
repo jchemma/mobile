@@ -33,16 +33,16 @@ public class DialogActivity extends BaseActivity{
     Handler handler = new  Handler() {
         @Override
         public void handleMessage(Message message) {
-            switch(message.what) {
-                case DIALOG:
-                    Bundle bundle = message.getData();
-                    String s = bundle.getString("msg");
-                    toastShort("Dialog Message: " +s);
-                    String content = message.getData().getString("msg");
-                    break;
-                default:
-            }
-            super.handleMessage(message);
+        switch(message.what) {
+            case DIALOG:
+                Bundle bundle = message.getData();
+                String s = bundle.getString("msg");
+                toastShort("Dialog Message: " +s);
+                String content = message.getData().getString("msg");
+                break;
+            default:
+        }
+        super.handleMessage(message);
         }
     };
 
