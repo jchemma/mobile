@@ -1,36 +1,26 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/activity_main"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="@android:color/black"
-    tools:context="com.example.chemm.jimdemo.MainActivity">
+                xmlns:tools="http://schemas.android.com/tools"
+                android:id="@+id/activity_main"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@android:color/black"
+                tools:context="com.example.chemm.jimDemo.MainActivity">
 
     <RelativeLayout
-        android:id="@+id/titlebar"
+        android:id="@+id/title_bar"
         android:layout_width="match_parent"
         android:layout_height="58dp"
-        android:background="@android:color/holo_blue_bright">
+        android:background="@android:color/holo_orange_light">
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:text="@string/app_name"
             android:textSize="30sp"
-            android:layout_centerInParent="true"
+            android:textColor="@color/white"
             android:gravity="center"
-            android:textColor="@color/white"/>
-
-        <ImageButton
-            android:id="@+id/topLeftButton"
-            android:layout_width="48dp"
-            android:layout_height="48dp"
-            android:background="@android:color/transparent"
-            android:src="@drawable/bt_style"
-            android:layout_marginLeft="12dp"
-            android:layout_centerVertical="true"
-            android:layout_alignParentLeft="true"/>
+            android:layout_centerInParent="true"/>
 
         <ImageButton
             android:id="@+id/topRightButton"
@@ -40,81 +30,105 @@
             android:layout_marginRight="12dp"
             android:layout_centerVertical="true"
             android:layout_alignParentRight="true"/>
+
+        <ImageButton
+            android:id="@+id/topLeftButton"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:background="@android:color/transparent"
+            android:src="@drawable/bt_style"
+            android:layout_marginLeft="12dp"
+            android:layout_centerVertical="true"
+            android:layout_alignParentStart="true"
+            android:layout_marginStart="20dp"
+            android:layout_alignParentLeft="true"/>
+
     </RelativeLayout>
 
+    <!--<ListView-->
+    <!--android:layout_below="@+id/title_bar"-->
+    <!--android:layout_above="@+id/tool_bar"-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="match_parent"-->
+    <!--android:background="@color/white">-->
+    <!--</ListView>-->
+
     <LinearLayout
-        android:id="@+id/toolbar"
+        android:id="@+id/tool_bar"
         android:layout_width="match_parent"
         android:layout_height="58dp"
-        android:layout_alignParentBottom="true"
+        android:background="@android:color/holo_green_light"
         android:orientation="horizontal"
-        android:background="@android:color/holo_green_light">
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true">
 
         <ImageButton
-            android:id="@+id/button1"
+            android:id="@+id/bt1"
             android:layout_width="0dp"
             android:layout_height="match_parent"
-            android:layout_margin="6dp"
             android:layout_weight="1"
-            android:background="@android:color/white"/>
+            android:layout_margin="6dp"
+            android:background="@color/white"/>
 
         <ImageButton
-            android:id="@+id/button2"
-            android:onClick="onClick"
+            android:id="@+id/bt2"
             android:layout_width="0dp"
             android:layout_height="match_parent"
-            android:layout_margin="6dp"
             android:layout_weight="1"
-            android:background="@android:color/white"/>
+            android:layout_margin="6dp"
+            android:background="@color/white"/>
 
         <ImageButton
-            android:id="@+id/button3"
+            android:id="@+id/bt3"
             android:layout_width="0dp"
             android:layout_height="match_parent"
-            android:layout_margin="6dp"
             android:layout_weight="1"
-            android:background="@android:color/white"/>
+            android:layout_margin="6dp"
+            android:background="@color/white"/>
+
     </LinearLayout>
 
     <FrameLayout
-        android:id="@+id/frame_layout"
+        android:id="@+id/main_fl"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginTop="58dp">
+        android:layout_below="@+id/title_bar"
+        android:layout_above="@+id/tool_bar"
+        android:background="@color/white">
 
         <Button
             android:id="@+id/timer_button"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Timer"
-            android:textAllCaps="false"
-            android:textSize="20sp"/>
+            android:layout_width="100dp"
+            android:layout_height="60dp"
+            android:layout_gravity="left"
+            android:text="Timer"/>
 
         <Button
             android:id="@+id/animation_button"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Animation"
-            android:layout_marginLeft="100dp"
-            android:textAllCaps="false"
-            android:textSize="20sp"/>
+            android:layout_width="100dp"
+            android:layout_height="60dp"
+            android:textSize="12sp"
+            android:layout_gravity="center_horizontal"
+            android:text="Animation"/>
 
         <Button
             android:id="@+id/animator_button"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Animator"
-            android:layout_marginLeft="225dp"
-            android:textAllCaps="false"
-            android:textSize="20sp"/>
+            android:layout_width="100dp"
+            android:layout_height="60dp"
+            android:textSize="12sp"
+            android:layout_gravity="right"
+            android:text="Animator"/>
 
         <Button
-            android:id="@+id/quiz_button"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Quiz"
-            android:textSize="20sp"
-            android:layout_marginTop="50dp"
-            android:textAllCaps="false"/>
+            android:id="@+id/quiz4"
+            android:layout_marginTop="64dp"
+            android:layout_width="100dp"
+            android:layout_height="60dp"
+            android:textSize="12sp"
+            android:layout_gravity="left"
+            android:text="Quiz 4"/>
+
     </FrameLayout>
+
 </RelativeLayout>
